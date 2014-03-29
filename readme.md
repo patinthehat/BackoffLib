@@ -1,7 +1,7 @@
 ### BackoffLib
 
 [Build Status](https://travis-ci.org/patinthehat/BackoffLib.png)](https://travis-ci.org/patinthehat/BackoffLib/)
-[Build Status](https://api.travis-ci.org/patinthehat/BackoffLib.png)(https://travis-ci.org/patinthehat/BackoffLib/)
+[Build Status][(https://api.travis-ci.org/patinthehat/BackoffLib.png)]https://travis-ci.org/patinthehat/BackoffLib/)
 
 <style>
 h3 { color: white; background-color: #1F166F; /*6CA0EB; */ padding: 3px; }
