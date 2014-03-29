@@ -71,8 +71,10 @@ various child classes.
 
 ### Examples
 
+<!--
 <div class="codeExample"><code><pre>
 </pre></code></div>
+-->
 
 ```
 require('BackoffLib/Backoff.php');
@@ -87,11 +89,9 @@ beo($be);
 echo "be->getCount = ".$be->getCount().PHP_EOL;
 ```
 
+<!--div class="codeExample"><code><pre></pre></code></div>-->
 
-<br />
 
-<div class="codeExample">
-<code><pre>
 ```php
 require('BackoffLib/Backoff.php');
 
@@ -107,4 +107,4 @@ beo($be);
 beo($be);
 beo($be);
 ```
-</pre></code></div>
+
