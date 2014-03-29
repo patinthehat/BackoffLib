@@ -4,7 +4,9 @@
  * 
  */
 
-define('BACKOFF_AUTOLOAD_DEBUG',  true);
+define('BACKOFF_AUTOLOAD_DEBUG',  !true);
+
+
 function shortened_filename($filename) {
   $home = getenv('HOME');
   $path = "$home/Development/";

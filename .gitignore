@@ -1,4 +1,6 @@
 build/**
 .settings/**
-
+coverage/**
+autoload.php
+php_errors.log
 *.o

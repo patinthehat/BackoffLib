@@ -43,7 +43,7 @@ abstract class BackoffBase {
   }
   
   public function __toString() {
-    return $this->getTime();
+    return "". $this->getTime() . "";
   }
 }
 

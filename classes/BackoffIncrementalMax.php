@@ -10,13 +10,13 @@ namespace BackoffLib;
 class BackoffIncrementalMax extends BackoffIncremental implements IBackoffMaximum {
   protected $max = 32;
 
-  function __construct($inc = 1, $maximumTime = 32) {
+  public function __construct($inc = 1, $maximumTime = 32) {
     parent::__construct($inc);
     if (is_int($maximumTime))
-      $this->max = $maximumTime;
+      $this->setMaximum($maximumTime);
   }
   
-  public function setMaximum(int $value) {
+  public function setMaximum($value) {
     $this->max = $value;
   }
   
