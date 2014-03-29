@@ -67,7 +67,7 @@ various child classes.
 
 
 ### Examples
-<div class="codeExample">require('BackoffLib/Backoff.php');
+<div class="codeExample">`require('BackoffLib/Backoff.php');
 $be = new BackoffLib\BackoffIncrementalMax(1, 2); //increment by 1, max 2
 function beo($b) {
   $b->backoff();
@@ -77,11 +77,11 @@ beo($be);
 beo($be);
 beo($be);
 echo "be->getCount = ".$be->getCount().PHP_EOL;
-</div>
+`</div>
 
 <spacer />
 
-<div class="codeExample">require('BackoffLib/Backoff.php');
+<div class="codeExample">`require('BackoffLib/Backoff.php');
 
 $be = new BackoffLib\BackoffExponential();
 function beo($b, $backoff=true) {
@@ -94,4 +94,4 @@ beo($be);
 beo($be);
 beo($be);
 beo($be);
-</div>
+`</div>
