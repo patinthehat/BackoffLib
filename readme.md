@@ -1,6 +1,7 @@
-### BackoffLib
+### BackoffLib [![Build Status](https://travis-ci.org/patinthehat/BackoffLib.png)](https://travis-ci.org/patinthehat/BackoffLib)
 
-[![Build Status](https://travis-ci.org/patinthehat/BackoffLib.png)](https://travis-ci.org/patinthehat/BackoffLib)
+---
+
 <!--
 <style>
 h3 { color: white; background-color: #1F166F; /*6CA0EB; */ padding: 3px; }
@@ -33,7 +34,7 @@ various child classes.
 - An _incremental backoff_ delay with an increment of 1 
   will increment in the following way: `1, 2, 3, 4, 5, 6, 7`
 
-<spacer />
+<br/>
 
 ---
 
@@ -69,7 +70,12 @@ various child classes.
 
 
 ### Examples
-<div class="codeExample"><pre>`require('BackoffLib/Backoff.php');
+
+<div class="codeExample"><code><pre>
+</pre></code></div>
+
+```
+require('BackoffLib/Backoff.php');
 $be = new BackoffLib\BackoffIncrementalMax(1, 2); //increment by 1, max 2
 function beo($b) {
   $b->backoff();
@@ -79,12 +85,15 @@ beo($be);
 beo($be);
 beo($be);
 echo "be->getCount = ".$be->getCount().PHP_EOL;
-`</pre></div>
+```
 
-<spacer />
 
-<div class="codeExample"><pre>
-`require('BackoffLib/Backoff.php');
+<br />
+
+<div class="codeExample">
+<code><pre>
+```php
+require('BackoffLib/Backoff.php');
 
 $be = new BackoffLib\BackoffExponential();
 function beo($b, $backoff=true) {
@@ -97,4 +106,5 @@ beo($be);
 beo($be);
 beo($be);
 beo($be);
-`</pre></div>
+```
+</pre></code></div>
