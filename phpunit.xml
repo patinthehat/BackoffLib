@@ -31,5 +31,6 @@
             lowUpperBound="40"
             highLowerBound="70"
         />
+      <log type="testdox-html" target="coverage/testdox.html"/>
     </logging>
 </phpunit>
