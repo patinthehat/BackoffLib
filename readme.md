@@ -68,6 +68,12 @@ various child classes.
 ---
 
 
+### Unit Tests
+
+  + Unit tests are in 'test/', and should be written and pass before any pull requests.
+
+---
+
 
 ### Examples
 
@@ -76,7 +82,7 @@ various child classes.
 </pre></code></div>
 -->
 
-```
+```php
 require('BackoffLib/Backoff.php');
 $be = new BackoffLib\BackoffIncrementalMax(1, 2); //increment by 1, max 2
 function beo($b) {
@@ -86,7 +92,7 @@ function beo($b) {
 beo($be);
 beo($be);
 beo($be);
-echo "be->getCount = ".$be->getCount().PHP_EOL;
+    echo "be->getCount = ".$be->getCount().PHP_EOL;
 ```
 
 <!--div class="codeExample"><code><pre></pre></code></div>-->

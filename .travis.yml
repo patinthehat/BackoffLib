@@ -4,3 +4,6 @@ php:
 
 before_script:
  - composer install
+
+
+script: phpunit

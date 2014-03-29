@@ -1,6 +1,9 @@
 build/**
 .settings/**
 coverage/**
+vendor/**
+
 autoload.php
 php_errors.log
 *.o
+*.lock
