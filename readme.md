@@ -1,8 +1,7 @@
 ### BackoffLib
 
-[Build Status](https://travis-ci.org/patinthehat/BackoffLib.png)](https://travis-ci.org/patinthehat/BackoffLib/)
-[Build Status][(https://api.travis-ci.org/patinthehat/BackoffLib.png)]https://travis-ci.org/patinthehat/BackoffLib/)
-
+[![Build Status](https://travis-ci.org/patinthehat/BackoffLib.png)](https://travis-ci.org/patinthehat/BackoffLib)
+<!--
 <style>
 h3 { color: white; background-color: #1F166F; /*6CA0EB; */ padding: 3px; }
 code { background-color: #EEEFCF; white-space: pre; }
@@ -20,7 +19,7 @@ a:visited { color: red; }
 }
 spacer, .spacer{ margin-bottom: 15px; height: 1px; width: 1px; display:block; }
 </style>
-
+-->
 A set of classes that implements various backoff (delay) routines, such as 
 [exponential backoff](http://en.wikipedia.org/wiki/Exponential_backoff).
 The classes can be used for implementing various types of delays (_i.e. using [`sleep()`](http://us2.php.net/manual/en/function.sleep.php), delays between http requests._)
