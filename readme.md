@@ -23,16 +23,16 @@ spacer, .spacer{ margin-bottom: 15px; height: 1px; width: 1px; display:block; }
 -->
 A set of classes that implements various backoff (delay) routines, such as 
 [exponential backoff](http://en.wikipedia.org/wiki/Exponential_backoff).
-The classes can be used for implementing various types of delays (_i.e. using [`sleep()`](http://us2.php.net/manual/en/function.sleep.php), delays between http requests._)
+The classes can be used for implementing various types of delays (_i.e. using [`sleep()`](http://php.net/manual/en/function.sleep.php), delays between http requests._)
 To execute, call `$class->backoff();`
 The `backoff()` function is declared abstract in `BackoffBase` and implemented in the
 various child classes.
 
-- An _exponential backoff_ delay with an exponent of 2 
-  will increment in the following way: `1, 2, 4, 8, 16, 32, 64`
+  + An _exponential backoff_ delay with a default exponent of 2 
+    will increment in the following way: `1, 2, 4, 8, 16, 32, 64`
 
-- An _incremental backoff_ delay with an increment of 1 
-  will increment in the following way: `1, 2, 3, 4, 5, 6, 7`
+  + An _incremental backoff_ delay with a default increment of 1 
+    will increment in the following way: `1, 2, 3, 4, 5, 6, 7`
 
 <br/>
 
@@ -42,6 +42,7 @@ various child classes.
 
 
   + `BackoffBase` - base class that all BackoffLib classes are inherited from.
+  + `BackoffCaller` - with a specified `BackoffBase` object: implements a `sleep()` delay and a callback function.
   + `BackoffExponential` - exponential backoff
   + `BackoffExponentialMax`- exponential backoff with maxiumum value
   + `BackoffIncremental` - incremental backoff
@@ -52,10 +53,15 @@ various child classes.
 
 ### Functions
 
-  - `$Backoff->backoff();` : executes the backoff implementation.
-  - `$Backoff->getInterval();` : implementation of the algorithm for the given class.  Modifies `$Backoff->interval`.
-  - `$Backoff->getTime();` : returns the value of the backoff (delay) `$time` after calling `backoff()`.
-  - `$Backoff->getIntervalValue();` : returns the value of the `$interval` for the class.
+  + `$Backoff->backoff();` - executes the backoff implementation.
+  + `$Backoff->getInterval();` - implementation of the algorithm for the given class.  Modifies `$Backoff->interval`.
+  + `$Backoff->getTime();` - returns the value of the backoff (delay) `$time` after calling `backoff()`.
+  + `$Backoff->getIntervalValue();` - returns the value of the `$interval` for the class.
+
+   ` `
+
+  + `$BackoffCaller($bo,$cb);` - creates a `BackoffCaller` object with the specified `BackoffBase` object and a `bool function($data);` callback.
+  + `$BackoffCaller->run();` - executes the callback in a loop until it returns `true`.
 
 ---
 
@@ -77,11 +83,6 @@ various child classes.
 
 ### Examples
 
-<!--
-<div class="codeExample"><code><pre>
-</pre></code></div>
--->
-
 ```php
 require('BackoffLib/Backoff.php');
 $be = new BackoffLib\BackoffIncrementalMax(1, 2); //increment by 1, max 2
@@ -92,11 +93,10 @@ function beo($b) {
 beo($be);
 beo($be);
 beo($be);
-    echo "be->getCount = ".$be->getCount().PHP_EOL;
+echo "be->getCount = ".$be->getCount().PHP_EOL;
 ```
 
-<!--div class="codeExample"><code><pre></pre></code></div>-->
-
+---
 
 ```php
 require('BackoffLib/Backoff.php');
@@ -113,4 +113,7 @@ beo($be);
 beo($be);
 beo($be);
 ```
+
+---
+
 

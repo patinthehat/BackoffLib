@@ -8,7 +8,16 @@
     convertWarningsToExceptions="true"
     stopOnFailure="true"
     syntaxCheck="true"
+    strict="false"
+    verbose="false"
 >
+  <php>
+    <ini name="extension" value="/usr/lib/php5/20100525+lfs/xdebug.so"/>
+    <ini name="xdebug.default_enable" value="1" />
+    <ini name="report_memleaks" value="1" />
+    <ini name="show_errors" value="1" />
+  </php>
+
     <testsuites>
         <testsuite name="basic">
             <directory>test</directory>
@@ -16,9 +25,12 @@
     </testsuites>
 
     <filter>
-        <whitelist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">classes</directory>
             <directory suffix=".php">interfaces</directory>
+            <exclude>
+              <directory>test</directory>
+            </exclude>
         </whitelist>
     </filter>
 

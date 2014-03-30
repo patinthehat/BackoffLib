@@ -59,6 +59,8 @@ function autoload_backoff() {
   require_class("BackoffIncrementalMax");
   require_class('BackoffExponential');
   require_class('BackoffExponentialMax');
+
+  require_class('BackoffCaller');
 }
 
 autoload_backoff();

@@ -7,3 +7,5 @@ autoload.php
 php_errors.log
 *.o
 *.lock
+test.php
+chamges.txt
