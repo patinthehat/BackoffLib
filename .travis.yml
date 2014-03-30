@@ -4,9 +4,9 @@ php:
 
 before_script:
  - sudo apt-get update
- - sudo apt-get install php5-cli php5-common
- - sudo /home/travis/.phpenv/versions/5.3.27/bin/composer.phar self-update
- - sudo /home/travis/.phpenv/versions/5.3.27/bin/composer.phar install
+ - sudo apt-get install php5-cli php5-common php-pear
+ - sudo composer self-update
+ - composer install
 
 
 script: phpunit
