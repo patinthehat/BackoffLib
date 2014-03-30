@@ -3,6 +3,9 @@ php:
   - 5.3
 
 before_script:
+ - sudo apt-get update
+ - sudo apt-get install php5-cli php5-common
+ - sudo apt-get install composer
  - sudo composer install
 
 
