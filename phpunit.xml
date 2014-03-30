@@ -12,7 +12,7 @@
     verbose="false"
 >
   <php>
-    <ini name="extension" value="/usr/lib/php5/20100525+lfs/xdebug.so"/>
+    <ini name="extension" value="xdebug.so"/>
     <ini name="xdebug.default_enable" value="1" />
     <ini name="report_memleaks" value="1" />
     <ini name="show_errors" value="1" />
