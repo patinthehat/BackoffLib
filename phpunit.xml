@@ -35,14 +35,14 @@
     </filter>
 
     <logging>
-        <!--<log type="coverage-html"
+        <log type="coverage-html"
             target="coverage"
             charset="UTF-8"
             yui="true"
             highlight="true"
             lowUpperBound="40"
             highLowerBound="70"
-        /-->
+        /> <!-- /--> 
         <log type="coverage-text" highlight="true" target="php://stdout" showUncoveredFiles="true"/>
     </logging>
 </phpunit>
