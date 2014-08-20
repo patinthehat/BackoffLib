@@ -1,14 +1,20 @@
 <?php 
 /**
+ * @author trick.developer@gmail.com
+ * @package BackoffLib
+ * @version 1.1
+ * 
  * Base class for implementing a backoff algorithm (i.e. exponential).
  * Implementing the getInterval() function should set $interval to a new value.
  * 
  */
+
 namespace BackoffLib;
 
+
 abstract class BackoffBase {
-  protected $count = 0;
-  protected $time = 0;
+  protected $count    = 0;
+  protected $time     = 0;
   protected $interval = 0;
 
   abstract protected function getInterval();
@@ -43,7 +49,7 @@ abstract class BackoffBase {
   }
   
   public function __toString() {
-    return "". $this->getTime() . "";
+    return "". $this->getTime();
   }
 }
 

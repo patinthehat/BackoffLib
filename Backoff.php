@@ -1,68 +1,44 @@
 <?php
 /**
+ * @author trick.developer@gmail.com
+ * @package BackoffLib
+ * @version 1.1
+ * 
  * autoloader for the BackoffLib classes.
  * 
  */
 
-define('BACKOFF_AUTOLOAD_DEBUG',  !true);
-
+define('BACKOFF_AUTOLOAD_DEBUG',  TRUE);
 
 function shortened_filename($filename) {
   $home = getenv('HOME');
-  $path = "$home/Development/";
+  $path = "$home/";
+  $path = realpath(dirname(__FILE__)."/..")."/";
   $ret = trim($filename);
   $ret = str_replace($path, '', $ret);
   return $ret;
 }
 
-function center($text, $len, $padChar = " ") {
-  if (strlen($text)<$len) {
-    $nlen = $len - strlen($text); 
-    $n = floor($nlen / 2);
-    $pad = str_repeat($padChar, $n);
-    $ret = $pad . $text . $pad;
-    $ret = substr($ret,0,$len);
-    return $ret;
+function backoff_autoload($class) {
+  $className = $class;
+  $className = str_replace("_", DIRECTORY_SEPARATOR, $className);
+  $className = preg_replace("/^BackoffLib\\\\(.*)$/", "$1", $className);
+  $fn = dirname(__FILE__).DIRECTORY_SEPARATOR."classes".DIRECTORY_SEPARATOR."{$className}.php";
+  if (file_exists($fn)) {
+    if (BACKOFF_AUTOLOAD_DEBUG)
+      echo "[DEBUG] autoload_class($className) \t: ".shortened_filename($fn)."".PHP_EOL;
+    require_once($fn);
+    return TRUE;
   }
-  return $text;
+  $fn = dirname(__FILE__).DIRECTORY_SEPARATOR."interfaces".DIRECTORY_SEPARATOR."{$className}.php";
+  if (file_exists($fn)) {
+    if (BACKOFF_AUTOLOAD_DEBUG)
+      echo "[DEBUG] autoload_interface($className) \t: ".shortened_filename($fn)."".PHP_EOL;
+    require_once($fn);
+    return TRUE;
+  }  
+  return FALSE;
 }
 
-function require_class($name) {
-  $name = trim($name);
-  $name = str_replace('..','',$name);
-  $fn = dirname(__FILE__)."/classes/${name}.php";
-  if (strlen($name)<20)
-    $name = center($name, 20);
-  
-  if (BACKOFF_AUTOLOAD_DEBUG)
-    echo "[DEBUG] require_class($name) \t: ".shortened_filename($fn)."".PHP_EOL;
-  require_once($fn);
-}
+spl_autoload_register('backoff_autoload');
 
-function require_interface($name) {
-  $name = trim($name);
-  $name = str_replace('..','',$name);
-  $fn = dirname(__FILE__)."/interfaces/${name}.php";
-  if (BACKOFF_AUTOLOAD_DEBUG)
-    echo "[DEBUG] require_interface($name) \t: ".shortened_filename($fn)."".PHP_EOL;
-  require_once($fn);
-}
-
-function require_intf($name) { 
-  require_interface($name); 
-}
-
-function autoload_backoff() {
-  require_intf ('IBackoffMaximum');
-  require_class('BackoffBase');
-  require_class("BackoffIncremental");
-  require_class("BackoffIncrementalMax");
-  require_class('BackoffExponential');
-  require_class('BackoffExponentialMax');
-
-  require_class('BackoffCaller');
-}
-
-autoload_backoff();
-
-echo center("autoload complete", 80, "-").PHP_EOL;

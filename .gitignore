@@ -2,10 +2,12 @@ build/**
 .settings/**
 coverage/**
 vendor/**
+html/**
 
 autoload.php
 php_errors.log
 *.o
 *.lock
+*.tmp
 test.php
-chamges.txt
+changes.txt

@@ -1,5 +1,9 @@
 <?php 
-/*
+/**
+ * @author trick.developer@gmail.com
+ * @package BackoffLib
+ * @version 1.1
+ * 
  * Implements an incremental backoff algorithm (incremental delay).
  */
 

@@ -28,11 +28,14 @@ To execute, call `$class->backoff();`
 The `backoff()` function is declared abstract in `BackoffBase` and implemented in the
 various child classes.
 
-  + An _exponential backoff_ delay with a default exponent of 2 
-    will increment in the following way: `1, 2, 4, 8, 16, 32, 64`
+  + A _exponential backoff_ delay with a default exponent of 2 
+    will increment in the following way: `1, 2, 4, 16, 256`
 
   + An _incremental backoff_ delay with a default increment of 1 
     will increment in the following way: `1, 2, 3, 4, 5, 6, 7`
+
+  + A _multiplicative backoff_ delay with a default exponent of 2 
+    will increment in the following way: `0.5, 1, 2, 4, 8, 16, 32, 64`
 
 <br/>
 
@@ -42,12 +45,14 @@ various child classes.
 
 
   + `BackoffBase` - base class that all BackoffLib classes are inherited from.
-  + `BackoffCaller` - with a specified `BackoffBase` object: implements a `sleep()` delay and a callback function.
+  + `BackoffCaller` - with a specified `BackoffBase` object: implements a delay handler callback and a OnFire callback function.  Can be used to quickly implement a backoff with minimal code.
   + `BackoffExponential` - exponential backoff
   + `BackoffExponentialMax`- exponential backoff with maxiumum value
   + `BackoffIncremental` - incremental backoff
   + `BackoffIncrementalMax` - incremental backoff with maxiumum value
-
+  + `BackoffMultiplicative` - multiplicative backoff
+  
+  
 ---
 
 
@@ -60,7 +65,7 @@ various child classes.
 
    ` `
 
-  + `$BackoffCaller($bo,$cb);` - creates a `BackoffCaller` object with the specified `BackoffBase` object and a `bool function($data);` callback.
+  + `$BackoffCaller($bo,$cb,$delayCb);` - creates a `BackoffCaller` object with the specified `BackoffBase` object, a `bool function($data);` callback, and a `int function($length)` delay callback _(return 0 on success)_.).  See file header for more descriptive usage.
   + `$BackoffCaller->run();` - executes the callback in a loop until it returns `true`.
 
 ---
@@ -76,7 +81,7 @@ various child classes.
 
 ### Unit Tests
 
-  + Unit tests are in 'test/', and should be written and pass before any pull requests.
+  + Unit tests are in _'test/'_, and should be written and pass before any pull requests.
 
 ---
 

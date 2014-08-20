@@ -4,7 +4,7 @@
  * @package BackoffLib
  * @version 1.1
  * 
- * Implements an exponential backoff algorithm (exponential delay)
+ * Implements an linear multiplicative backoff algorithm (multiplicative delay)
  * 
  * For example, an exponent of 2 (the default) would result in the following:
  *    #    delay
@@ -12,8 +12,8 @@
  *    1    1        
  *    2    2        
  *    3    4        
- *    4    16        
- *    5    256       
+ *    4    8        
+ *    5    16       
  *    ...
  *    ============
  * 
@@ -22,7 +22,7 @@
 namespace BackoffLib;
 
 
-class BackoffExponential extends BackoffBase {
+class BackoffMultiplicative extends BackoffBase {
   protected $exponent = 2;
 
   public function __construct($exp = 2) {
@@ -31,17 +31,10 @@ class BackoffExponential extends BackoffBase {
   }
 
   protected function getInterval() {
-    if ($this->interval <= 1) {
-      $this->interval = pow($this->exponent, $this->interval);// (($this->interval*2) * $this->exponent);
-    } else {
-      $this->interval = pow($this->interval, $this->exponent);// * ($this->interval<$this->exponent?2.0:1.0);
-    }
+    $this->interval = $this->interval * $this->exponent;
     
-    if ($this->interval<0)
+    if ($this->interval <= 0)
       $this->interval = 1;
-    
-        
-    $this->interval = ($this->interval);
     return $this->interval;
   }
   

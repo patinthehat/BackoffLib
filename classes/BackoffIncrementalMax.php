@@ -1,6 +1,9 @@
 <?php 
 /**
- *
+ * @author trick.developer@gmail.com
+ * @package BackoffLib
+ * @version 1.1
+ * 
  * BackoffIncrementalMax
  *   Enforces a maximum limit on the time parameter for a BackoffIncremental class.
  */
