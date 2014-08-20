@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - "5.3.x"
   - "5.4"
 
 before_script:
