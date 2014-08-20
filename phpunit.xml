@@ -12,7 +12,7 @@
     verbose="false"
 >
   <php>
-    <ini name="extension" value="/usr/lib/php5/20100525+lfs/xdebug.so"/>
+    <ini name="extension" value="xdebug.so"/>
     <ini name="xdebug.default_enable" value="1" />
     <ini name="report_memleaks" value="1" />
     <ini name="show_errors" value="1" />
@@ -35,14 +35,14 @@
     </filter>
 
     <logging>
-        <log type="coverage-html"
+        <!--<log type="coverage-html"
             target="coverage"
             charset="UTF-8"
             yui="true"
             highlight="true"
             lowUpperBound="40"
             highLowerBound="70"
-        />
-      <log type="testdox-html" target="coverage/testdox.html"/>
+        /-->
+        <log type="coverage-text" highlight="true" target="php://stdout" showUncoveredFiles="true"/>
     </logging>
 </phpunit>
