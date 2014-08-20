@@ -2,6 +2,7 @@
 /**
  * @author trick.developer@gmail.com
  * @package BackoffLib
+ * @license MIT
  * @version 1.1
  * 
  * BackoffExponentialMax
@@ -16,14 +17,9 @@ class BackoffExponentialMax extends BackoffExponential implements IBackoffMaximu
 
   function __construct($exp = 2, $maximumTime = 32) {
     parent::__construct($exp);
-    if (is_int($maximumTime))
+    if (is_numeric($maximumTime))
       $this->setMaximum($maximumTime);
   }
-  
-  /*
-  public function BackoffExponential($value) {
-    $this->max = $value;
-  }*/
   
   public function getMaximum() {
     return $this->max;

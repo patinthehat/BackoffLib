@@ -2,6 +2,7 @@
 /**
  * @author trick.developer@gmail.com
  * @package BackoffLib
+ * @license MIT
  * @version 1.1
  * 
  * Base class for implementing a backoff algorithm (i.e. exponential).

@@ -2,6 +2,7 @@
 /**
  * @author trick.developer@gmail.com
  * @package BackoffLib
+ * @license MIT
  * @version 1.1
  * 
  * Implements an linear multiplicative backoff algorithm (multiplicative delay)
@@ -25,11 +26,17 @@ namespace BackoffLib;
 class BackoffMultiplicative extends BackoffBase {
   protected $exponent = 2;
 
+  /**
+   * @codeCoverageIgnore
+   */
   public function __construct($exp = 2) {
     if (is_numeric($exp) && $exp > 0)
       $this->exponent = $exp;
   }
 
+  /**
+   * @codeCoverageIgnore
+   */
   protected function getInterval() {
     $this->interval = $this->interval * $this->exponent;
     
@@ -38,6 +45,9 @@ class BackoffMultiplicative extends BackoffBase {
     return $this->interval;
   }
   
+  /**
+   * @codeCoverageIgnore
+   */
   public function backoff() {
     parent::backoff();
   }

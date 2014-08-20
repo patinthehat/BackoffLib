@@ -2,6 +2,7 @@
 /**
  * @author trick.developer@gmail.com
  * @package BackoffLib
+ * @license MIT
  * @version 1.1
  *
  * Implements a delay handler callback and a OnFire callback function.  Can be used to  
@@ -27,7 +28,7 @@ class BackoffCaller {
   protected $delayCb = null;
 
   /**
-   * codeCoverageIgnore
+   * @codeCoverageIgnore
    */
   function __construct(BackoffBase $backoff,callable $callback, callable $delayCb) {
     $this->bo = $backoff;
@@ -36,7 +37,7 @@ class BackoffCaller {
   }
 
   /**
-   * codeCoverageIgnore
+   * @codeCoverageIgnore
    */
   function delay($len) {
     if ($ret = call_user_func($this->delayCb, $len)===0)  //on Windows, sleep() may not return 0 on success
@@ -45,7 +46,7 @@ class BackoffCaller {
   }
 
   /**
-   * @ codeCoverageIgnore
+   * @codeCoverageIgnore
    */
   function run($initialValue = false) {
     $r = $initialValue;

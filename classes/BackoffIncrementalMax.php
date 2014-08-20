@@ -2,6 +2,7 @@
 /**
  * @author trick.developer@gmail.com
  * @package BackoffLib
+ * @license MIT
  * @version 1.1
  * 
  * BackoffIncrementalMax
@@ -15,7 +16,7 @@ class BackoffIncrementalMax extends BackoffIncremental implements IBackoffMaximu
 
   public function __construct($inc = 1, $maximumTime = 32) {
     parent::__construct($inc);
-    if (is_int($maximumTime))
+    if (is_numeric($maximumTime))
       $this->setMaximum($maximumTime);
   }
   
