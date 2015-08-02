@@ -3,7 +3,7 @@
  * @author trick.developer@gmail.com
  * @package BackoffLib
  * @license MIT
- * @version 1.1
+ * @version 1.2
  *
  * Implements a delay handler callback and a OnFire callback function.  Can be used to  
  * quickly implement a backoff with minimal code.

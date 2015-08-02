@@ -3,7 +3,7 @@
  * @author trick.developer@gmail.com
  * @package BackoffLib
  * @license MIT
- * @version 1.1
+ * @version 1.2
  * 
  * BackoffExponentialMax
  *   Enforces a maximum limit on the time parameter for a BackoffExponential class.

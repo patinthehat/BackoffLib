@@ -3,7 +3,7 @@
  * @author trick.developer@gmail.com
  * @package BackoffLib
  * @license MIT
- * @version 1.1
+ * @version 1.2
  * 
  * Implements an linear multiplicative backoff algorithm (multiplicative delay)
  * 
