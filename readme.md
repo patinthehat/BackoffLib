@@ -2,25 +2,6 @@
 
 ---
 
-<!--
-<style>
-h3 { color: white; background-color: #1F166F; /*6CA0EB; */ padding: 3px; }
-code { background-color: #EEEFCF; white-space: pre; }
-a { color: red; }
-a:visited { color: red; }
-.codeExample {
-  margin-left:20px; 
-  border: 1px dashed #5A5959; 
-  padding: 5px;
-  background-color: #C4DAF3;
-  font-family: monospace;
-  font-size: 9pt;
-  font-style:italic;
-  white-space: pre;
-}
-spacer, .spacer{ margin-bottom: 15px; height: 1px; width: 1px; display:block; }
-</style>
--->
 A PHP library that implements various backoff (delay) routines, such as [exponential backoff](http://en.wikipedia.org/wiki/Exponential_backoff).
 The classes can be used for implementing various types of delays (_i.e. using [`sleep()`](http://php.net/manual/en/function.sleep.php), delays between http requests_). See below for a more descriptive usage example.
 To execute, call `$class->backoff();`
@@ -37,9 +18,7 @@ various child classes.
     will increment in the following way: `0.5, 1, 2, 4, 8, 16, 32, 64`
 
 
-
   _Example Usage:  Using a backoff algorithm that slowly backs off api calls if they return a "busy" status code so the server isn't overwhelmed by repeated requests.  Each time the server returns a "busy" status, the delay between api calls increases._
-
 
 
 ---
@@ -54,7 +33,7 @@ various child classes.
   + `BackoffIncremental` - incremental backoff
   + `BackoffIncrementalMax` - incremental backoff with maxiumum value
   + `BackoffMultiplicative` - multiplicative backoff
-  
+  + `BackoffRandom` - random backoff
   
 ---
 
@@ -171,5 +150,5 @@ beo($be);
 
 ### License 
 
-`BackoffLib` is open source software, available under the MIT license.  See the LICENSE file for more information.
+`BackoffLib` is open source software, available under the MIT license.  See the <a href="LICENSE">LICENSE</a> file for more information.
 
